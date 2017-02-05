@@ -1,5 +1,6 @@
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Field;
+import java.lang.reflect.Method;
 import java.lang.reflect.Modifier;
 import java.util.Arrays;
 
@@ -21,16 +22,40 @@ public class ClassInspector {
 
         Field[] fields = inspectedClass.getFields();
         Constructor[] constructors = inspectedClass.getConstructors();
+        Method[] methods = inspectedClass.getMethods();
 
         System.out.print(
 
-                Modifier.toString(inspectedClass.getModifiers())
-                + " interface "
-                + inspectedClass.getName()
-                + " {\n \n"
-                + (fields.length > 0 ? Arrays.stream(fields).map(s -> s.toString()).reduce((a, b) -> a + "\n" + b) + "/n" : "")
-                + Arrays.stream(constructors).map(s -> s.toString()).reduce((a, b) -> a + "\n" + b)
+                "Modifier: \n" +
+                Modifier.toString(inspectedClass.getModifiers()) + "\n \n" +
 
+                "Interface / Class: \n" +
+                inspectedClass.toString().substring(0, inspectedClass.toString().indexOf(' ')) + "\n \n" +
+
+                "Name: \n" +
+                inspectedClass.getSimpleName() + "\n \n" +
+
+                "Fields: \n" +
+                (fields.length > 0
+                        ? Arrays.stream(fields).
+                            map(s -> s.toString()).
+                                reduce((a, b) -> a + "\n" + b) + "\n"
+                : "None present") + "\n \n" +
+
+                "Constructors: \n" +
+                (constructors.length > 0
+                        ? Arrays.stream(constructors).
+                            map(s -> s.toString()).
+                                reduce((a, b) -> a + "\n" + b) + "\n"
+                : "None present") + "\n \n" +
+
+                "Methods: \n" +
+                        (methods.length > 0
+                                ? Arrays.stream(methods).
+                                map(s -> s.toString()).
+                                reduce((a, b) -> a + "\n" + b) + "\n"
+                 : "None present") + "\n \n"
         );
     }
+
 }
