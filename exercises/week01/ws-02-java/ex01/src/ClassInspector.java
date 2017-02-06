@@ -9,6 +9,11 @@ import java.util.Arrays;
  */
 public class ClassInspector {
 
+    /**
+     * Wrapper for the class.forName() method
+     * @param name Name of the class to be fetched
+     * @return The class corresponding to the given name
+     */
     public Class getClass(String name) {
         try {
             return Class.forName(name);
@@ -18,6 +23,10 @@ public class ClassInspector {
         }
     }
 
+    /**
+     * Prints the modifiers, type, name, fields, constructors, and methods for a given class
+     * @param inspectedClass the class for which an interface is to be emitted
+     */
     public void emitInterface(Class inspectedClass) {
 
         Field[] fields = inspectedClass.getFields();
