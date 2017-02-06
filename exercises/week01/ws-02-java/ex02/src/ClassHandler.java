@@ -40,10 +40,9 @@ public class ClassHandler {
                 constructor = candidate;
             }
         }
-        // Converting the parameters array into varargs readable format
+        // Casting or converting the parameters according to the argument types specified in the constructor
         Object[] parametersArgs = parameters.toArray();
         for(int counter = 0; counter < parametersArgs.length; counter++) {
-            System.out.println(constructor.getParameterTypes()[counter].toString());
             if(constructor.getParameterTypes()[counter].toString().equals("long")) {
                 parametersArgs[counter] = Long.parseLong(parametersArgs[counter].toString());
             } else if (constructor.getParameterTypes()[counter].toString().equals("int")) {
@@ -55,9 +54,6 @@ public class ClassHandler {
                 counter++;
             }
         }
-
-        System.out.println(constructor.toString());
-        System.out.println(Arrays.toString(parametersArgs));
         return constructor.newInstance(parametersArgs);
     }
 }
