@@ -1,5 +1,8 @@
 import org.junit.Before;
 import org.junit.Test;
+
+import java.lang.reflect.Modifier;
+import java.util.ArrayList;
 import java.util.Arrays;
 import static org.junit.Assert.assertTrue;
 
@@ -8,46 +11,50 @@ import static org.junit.Assert.assertTrue;
  */
 public class SubmittedProgramShould {
 
-    private Class studentsClass = Class.forName("TestClass");
+    private String className = "TestClass";
+
 
     @Test
-    public void submittedProgramShouldHaveFourOrLessFields {
+    public void submittedProgramShouldHaveFourOrLessFields() throws Exception {
+        Class studentsClass = Class.forName(className);
         assertTrue(studentsClass.getDeclaredFields().length <= 4);
     }
 
     @Test
-    public void submittedProgramShouldHaveOnlyPrivateFields {
+    public void submittedProgramShouldHaveOnlyPrivateFields() throws Exception {
+        Class studentsClass = Class.forName(className);
         Object[] nonPrivateFields = Arrays.stream(studentsClass.getDeclaredFields())
-                .filter(s -> !s.toString(s.getModifiers()).equals("private")
+                .filter(s -> !Modifier.toString(s.getModifiers()).equals("private"))
                         .toArray();
         assertTrue(nonPrivateFields.length == 0);
     }
 
     @Test
-    public void submittedProgramShouldHaveNoFieldsOfTypeArrayList {
+    public void submittedProgramShouldHaveNoFieldsOfTypeArrayList() throws Exception {
+        Class studentsClass = Class.forName(className);
         Object[] fieldsOfTypeArrayList = Arrays.stream(studentsClass.getDeclaredFields())
-                .filter(s -> s.getType() == Class.forName(java.util.ArrayList))
+                .filter(s -> s.getType() == new ArrayList().getClass())
                 .toArray();
         assertTrue(fieldsOfTypeArrayList.length == 0);
     }
 
     @Test
-    public void submittedProgramShouldHaveLessThanTwoPrivateHelperMethods {
+    public void submittedProgramShouldHaveLessThanTwoPrivateHelperMethods() {
 
     }
 
     @Test
-    public void submittedProgramShouldHaveNoMethodsWithAThrowClause {
+    public void submittedProgramShouldHaveNoMethodsWithAThrowClause() {
 
     }
 
     @Test
-    public void submittedProgramShouldHaveNoMethodsThatReturnAnInt {
+    public void submittedProgramShouldHaveNoMethodsThatReturnAnInt() {
 
     }
 
     @Test
-    public void submittedProgramShouldHaveAZeroArgumentConstructor {
+    public void submittedProgramShouldHaveAZeroArgumentConstructor() {
 
     }
 
