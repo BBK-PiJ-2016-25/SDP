@@ -39,7 +39,12 @@ public class SubmittedProgramShould {
     }
 
     @Test
-    public void submittedProgramShouldHaveLessThanTwoPrivateHelperMethods() {
+    public void submittedProgramShouldHaveLessThanTwoPrivateHelperMethods() throws Exception {
+        Class studentsClass = Class.forName(className);
+        Object[] privateMethods = Arrays.stream(studentsClass.getDeclaredMethods())
+                .filter(s -> Modifier.toString(s.getModifiers()).equals("private"))
+                .toArray();
+        assertTrue(privateMethods.length >= 2);
 
     }
 
