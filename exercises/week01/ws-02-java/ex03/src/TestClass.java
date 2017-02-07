@@ -10,4 +10,16 @@ public class TestClass {
     private ArrayList anArrayList = new ArrayList();
     private String aString = "hello";
     private String anotherString = "this should break another one...";
+
+    private void heresOneHelper() {
+
+    }
+
+    private void heresAnother() {
+
+    }
+
+    private void tooManyCooksSpoilTheBroth() throws Exception {
+
+    }
 }

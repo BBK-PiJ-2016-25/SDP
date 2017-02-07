@@ -44,13 +44,17 @@ public class SubmittedProgramShould {
         Object[] privateMethods = Arrays.stream(studentsClass.getDeclaredMethods())
                 .filter(s -> Modifier.toString(s.getModifiers()).equals("private"))
                 .toArray();
-        assertTrue(privateMethods.length >= 2);
+        assertTrue(privateMethods.length <= 2);
 
     }
 
     @Test
-    public void submittedProgramShouldHaveNoMethodsWithAThrowClause() {
-
+    public void submittedProgramShouldHaveNoMethodsWithAThrowClause() throws Exception {
+        Class studentsClass = Class.forName(className);
+        Object[] methodsThatThrowExceptions = Arrays.stream(studentsClass.getDeclaredMethods())
+                .filter(s -> s.getExceptionTypes().length > 0)
+                .toArray();
+        assertTrue(methodsThatThrowExceptions.length == 0);
     }
 
     @Test
