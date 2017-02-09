@@ -69,10 +69,10 @@ object Hammurabi {
     bushelsToFeed
   }
 
-  def askHowManyAcresToPlant(acresOwned: Int) = {
+  def askHowManyAcresToPlant(acresOwned: Int, people: Int) = {
     var acresToPlant = readInt("\nHow many acres will you plant?\n")
-    while (acresToPlant > acresOwned) {
-      println("O Great Hammurabi, we own but " + acresOwned + " acres!")
+    while (acresToPlant > acresOwned || acresToPlant > population*10) {
+      println("O Great Hammurabi, we own but " + acresOwned + " acres, and have only " + population + " farmers!")
       acresToPlant = readInt("\nHow many acres will you plant?\n")
     }
     acresToPlant
@@ -104,7 +104,7 @@ object Hammurabi {
         acresBought = askHowMuchLandToBuy(bushelsInStorage, pricePerAcre)
         if (acresBought == 0) acresSold = askHowMuchLandToSell(acresOwned)
         grainFed = askHowMuchGrainToFeedThePeople(bushelsInStorage)
-        acresPlanted = askHowManyAcresToPlant(acresOwned)
+        acresPlanted = askHowManyAcresToPlant(acresOwned, population)
 
         if (Random.nextInt(100) < 15) {
           println("O Great Hammurabi, there has been a plague!")
@@ -132,7 +132,7 @@ object Hammurabi {
         if (Random.nextInt(100) < 40) {
           rats_ate = (Random.nextInt(3)+1/10)*bushelsInStorage
         }
-        bushelsInStorage = bushelsInStorage + (pricePerAcre * acresSold) - (pricePerAcre * acresBought) - grainFed + harvest - rats_ate
+        bushelsInStorage = bushelsInStorage + (pricePerAcre * acresSold) - (pricePerAcre * acresBought) - grainFed + harvest - rats_ate - acresPlanted*2
         acresOwned = acresOwned + acresBought - acresSold
         pricePerAcre = Random.nextInt(7)+17
     }
