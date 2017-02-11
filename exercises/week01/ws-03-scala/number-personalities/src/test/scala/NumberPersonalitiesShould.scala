@@ -123,4 +123,31 @@ class NumberPersonalitiesShould extends org.scalatest.FunSuite {
     assert(!isSmug(28))
   }
 
+  // isHonest tests
+
+  test("isHonest -1") {
+    assert(isHonest(1))
+  }
+
+  test("isHonest- 2") {
+    assert(isHonest(2))
+  }
+
+  test("isHonest- 3") {
+    assert(isHonest(3))
+  }
+
+  test("isHonest- 4") {
+    assert(isHonest(4))
+  }
+
+  test("isHonest- 5") {
+    assert(!isHonest(5))
+  }
+
+  test("isHonest- 6") {
+    assert(!isHonest(6))
+  }
+
+
 }

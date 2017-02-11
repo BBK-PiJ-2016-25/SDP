@@ -47,7 +47,8 @@ object  NumberPersonalities {
     println("remainder is " + remainder)
     if (remainder != 0 && isSquare(remainder)) true else false
   }
-  //def isHonest(n: Int): Boolean
+
+  def isHonest(n: Int): Boolean = true
   //def isPronic(n: Int): Boolean
   //def isDeficient(n: Int): Boolean
   //def isPerfect(n: Int): Boolean
