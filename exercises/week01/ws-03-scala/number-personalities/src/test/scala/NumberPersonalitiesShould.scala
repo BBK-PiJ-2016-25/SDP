@@ -75,4 +75,30 @@ class NumberPersonalitiesShould extends org.scalatest.FunSuite {
     assert(isTriangular(351))
   }
 
+  // isTriangular tests
+
+  test("isSquare- 1") {
+    assert(isSquare(1))
+  }
+
+  test("isSquare- 2") {
+    assert(!isSquare(2))
+  }
+
+  test("isSquare- 10") {
+    assert(!isSquare(10))
+  }
+
+  test("isSquare- 16") {
+    assert(isSquare(16))
+  }
+
+  test("isSquare- 99") {
+    assert(!isSquare(99))
+  }
+
+  test("isSquare- 144") {
+    assert(isSquare(144))
+  }
+
 }

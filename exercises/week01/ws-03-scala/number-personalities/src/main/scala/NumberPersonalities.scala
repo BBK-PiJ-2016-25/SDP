@@ -25,7 +25,16 @@ object  NumberPersonalities {
     }
     if (input == 0) true else false
   }
-  //def isSquare(n: Int): Boolean
+
+  def isSquare(n: Int): Boolean = {
+    var input = n
+    var counter = 1
+    while (input > 0) {
+      input-= counter
+      counter+= 2
+    }
+    if (input == 0) true else false
+  }
   //def isSmug(n: Int): Boolean
   //def isHonest(n: Int): Boolean
   //def isPronic(n: Int): Boolean
