@@ -13,13 +13,7 @@ object  NumberPersonalities {
   }
 
   def isHappy(n: Int): Boolean = {
-    if (n == 1) {
-      true
-    } else if (n == 4) {
-      false
-    } else {
-      isHappy(sumOfSquares(n))
-    }
+    if (n == 1) true else if (n == 4) false else isHappy(sumOfSquares(n))
   }
 
   def isTriangular(n: Int): Boolean = {
