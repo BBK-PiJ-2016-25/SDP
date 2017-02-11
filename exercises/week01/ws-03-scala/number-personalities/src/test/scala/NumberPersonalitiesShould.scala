@@ -23,4 +23,30 @@ class NumberPersonalitiesShould extends org.scalatest.FunSuite {
     assert(isPrime(43))
   }
 
+  // isHappy tests
+
+  test("isHappy- 1") {
+    assert(!isHappy(1))
+  }
+
+  test("isHappy- 100") {
+    assert(isHappy(100))
+  }
+
+  test("isHappy- -100") {
+    assert(!isHappy(-100))
+  }
+
+  test("isHappy- 4") {
+    assert(!isHappy(4))
+  }
+
+  test("isHappy- 150") {
+    assert(!isHappy(150))
+  }
+
+  test("isHappy- 565") {
+    assert(isHappy(565))
+  }
+
 }
