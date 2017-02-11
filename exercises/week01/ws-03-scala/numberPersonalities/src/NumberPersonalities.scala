@@ -1,7 +1,7 @@
 /**
   * Created by ahawes02 on 09/02/2017.
   */
-object NumberPersonalities {
+object  NumberPersonalities {
 
   val limit = 100
 
@@ -19,7 +19,6 @@ object NumberPersonalities {
 
   def main(args: Array[String]): Unit = {
     for(a<-1 until limit) {
-
     }
   }
 }
