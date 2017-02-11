@@ -22,7 +22,7 @@ object  NumberPersonalities {
     }
   }
 
-  //def isTriangular(n: Int): Boolean
+  def isTriangular(n: Int): Boolean = true
   //def isSquare(n: Int): Boolean
   //def isSmug(n: Int): Boolean
   //def isHonest(n: Int): Boolean
