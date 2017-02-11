@@ -104,7 +104,7 @@ class NumberPersonalitiesShould extends org.scalatest.FunSuite {
   // isSmug tests
 
   test("isSmug -1") {
-    assert(isSmug(1))
+    assert(!isSmug(1))
   }
 
   test("isSmug- 2") {

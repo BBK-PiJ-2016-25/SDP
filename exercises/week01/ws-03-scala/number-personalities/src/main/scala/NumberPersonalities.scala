@@ -36,7 +36,17 @@ object  NumberPersonalities {
     if (input == 0) true else false
   }
 
-  def isSmug(n: Int): Boolean = true
+  def isSmug(n: Int): Boolean = {
+    var remainder = 0
+    println("number is " + n)
+    var counter = 1
+    do {
+      remainder = n - counter * counter
+      counter += 1
+    } while (!isSquare(remainder) && remainder > 0)
+    println("remainder is " + remainder)
+    if (remainder != 0 && isSquare(remainder)) true else false
+  }
   //def isHonest(n: Int): Boolean
   //def isPronic(n: Int): Boolean
   //def isDeficient(n: Int): Boolean
