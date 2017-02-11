@@ -22,7 +22,15 @@ object  NumberPersonalities {
     }
   }
 
-  def isTriangular(n: Int): Boolean = true
+  def isTriangular(n: Int): Boolean = {
+    var input = n
+    var counter = 1
+    while (input > 0) {
+      input-= counter
+      counter+= 1
+    }
+    if (input == 0) true else false
+  }
   //def isSquare(n: Int): Boolean
   //def isSmug(n: Int): Boolean
   //def isHonest(n: Int): Boolean
