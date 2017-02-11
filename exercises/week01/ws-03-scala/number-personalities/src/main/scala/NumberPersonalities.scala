@@ -5,8 +5,23 @@ object  NumberPersonalities {
 
   val limit = 100
 
-  def isPrime(n: Int): Boolean = n > 1 && !((2 until n/2) exists (n % _ == 0))
-  def isHappy(n: Int): Boolean = true
+  def isPrime(n: Int): Boolean = n > 1 && !((2 until n / 2) exists (n % _ == 0))
+
+  def sumOfSquares(n: Int): Int = {
+    val digitsList = n.toString.map(_.asDigit).toList
+    digitsList map (a => a * a) sum
+  }
+
+  def isHappy(n: Int): Boolean = {
+    if (n == 1) {
+      true
+    } else if (n == 4) {
+      false
+    } else {
+      isHappy(sumOfSquares(n))
+    }
+  }
+
   //def isTriangular(n: Int): Boolean
   //def isSquare(n: Int): Boolean
   //def isSmug(n: Int): Boolean

@@ -25,16 +25,16 @@ class NumberPersonalitiesShould extends org.scalatest.FunSuite {
 
   // isHappy tests
 
+  test("sumOfSquares- 563") {
+    assert(sumOfSquares(563) == 70)
+  }
+
   test("isHappy- 1") {
-    assert(!isHappy(1))
+    assert(isHappy(1))
   }
 
-  test("isHappy- 100") {
-    assert(isHappy(100))
-  }
-
-  test("isHappy- -100") {
-    assert(!isHappy(-100))
+  test("isHappy- 19") {
+    assert(isHappy(19))
   }
 
   test("isHappy- 4") {
