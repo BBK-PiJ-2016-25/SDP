@@ -5,7 +5,7 @@ object  NumberPersonalities {
 
   val limit = 100
 
-  def isPrime(n: Int): Boolean = !((2 until n/2) exists (n % _ == 0))
+  def isPrime(n: Int): Boolean = n > 1 && !((2 until n/2) exists (n % _ == 0))
   //def isHappy(n: Int): Boolean =
   //def isTriangular(n: Int): Boolean
   //def isSquare(n: Int): Boolean
