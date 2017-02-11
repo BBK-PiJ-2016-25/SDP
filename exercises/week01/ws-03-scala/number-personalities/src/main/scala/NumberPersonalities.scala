@@ -35,7 +35,8 @@ object  NumberPersonalities {
     }
     if (input == 0) true else false
   }
-  //def isSmug(n: Int): Boolean
+
+  def isSmug(n: Int): Boolean = true
   //def isHonest(n: Int): Boolean
   //def isPronic(n: Int): Boolean
   //def isDeficient(n: Int): Boolean

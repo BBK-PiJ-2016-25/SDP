@@ -75,7 +75,7 @@ class NumberPersonalitiesShould extends org.scalatest.FunSuite {
     assert(isTriangular(351))
   }
 
-  // isTriangular tests
+  // isSquare tests
 
   test("isSquare- 1") {
     assert(isSquare(1))
@@ -99,6 +99,28 @@ class NumberPersonalitiesShould extends org.scalatest.FunSuite {
 
   test("isSquare- 144") {
     assert(isSquare(144))
+  }
+
+  // isSmug tests
+
+  test("isSmug -1") {
+    assert(isSmug(1))
+  }
+
+  test("isSmug- 2") {
+    assert(isSmug(2))
+  }
+
+  test("isSmug- 11") {
+    assert(!isSmug(11))
+  }
+
+  test("isSmug- 109") {
+    assert(isSmug(109))
+  }
+
+  test("isSmug- 28") {
+    assert(!isSmug(28))
   }
 
 }
