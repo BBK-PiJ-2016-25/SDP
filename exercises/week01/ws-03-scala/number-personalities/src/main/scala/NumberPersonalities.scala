@@ -12,6 +12,14 @@ object  NumberPersonalities {
     digitsList map (a => a * a) sum
   }
 
+  def sumOfDivisors(n: Int): Int = {
+    var sum = 0
+    for(a<-1 until n) {
+      if (n % a == 0) sum += a
+    }
+    sum
+  }
+
   def isHappy(n: Int): Boolean = {
     if (n == 1) true else if (n == 4) false else isHappy(sumOfSquares(n))
   }
@@ -60,10 +68,11 @@ object  NumberPersonalities {
     return false
   }
 
+  def isDeficient(n: Int): Boolean = sumOfDivisors(n) < n
 
-  //def isDeficient(n: Int): Boolean
-  //def isPerfect(n: Int): Boolean
-  //def isAbundant(n: Int): Boolean
+  def isPerfect(n: Int): Boolean = sumOfDivisors(n) == n
+
+  def isAbundant(n: Int): Boolean = sumOfDivisors(n) > n
 
   /*
   def main(args: Array[String]): Unit = {

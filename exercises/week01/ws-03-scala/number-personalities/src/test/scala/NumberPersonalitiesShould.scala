@@ -179,5 +179,10 @@ class NumberPersonalitiesShould extends org.scalatest.FunSuite {
     assert(!isPronic(18))
   }
 
+  // sumOfDivisors tests
+
+  test("sumOfDivisors -24") {
+    assert(sumOfDivisors(24) == 36)
+  }
 
 }
