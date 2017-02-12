@@ -77,7 +77,7 @@ object  NumberPersonalities {
   def main(args: Array[String]): Unit = {
     for(a<-1 until limit) {
       println(
-        a + "\t"
+        a + "\t",
         if (isPrime(a)) "p, " else "c, ",
         if (isHappy(a)) "h, " else "u, ",
         if (isTriangular(a)) "t, " else "not t, ",
