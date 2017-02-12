@@ -52,7 +52,8 @@ object  NumberPersonalities {
     }
     return true
   }
-  //def isPronic(n: Int): Boolean
+
+  def isPronic(n: Int): Boolean = true
   //def isDeficient(n: Int): Boolean
   //def isPerfect(n: Int): Boolean
   //def isAbundant(n: Int): Boolean
