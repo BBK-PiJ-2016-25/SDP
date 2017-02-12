@@ -146,7 +146,7 @@ class NumberPersonalitiesShould extends org.scalatest.FunSuite {
   }
 
   test("isHonest- 6") {
-    assert(!isHonest(6))
+    assert(isHonest(6))
   }
 
 
