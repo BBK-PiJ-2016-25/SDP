@@ -164,7 +164,7 @@ class NumberPersonalitiesShould extends org.scalatest.FunSuite {
   }
 
   test("isPronic- 2") {
-    assert(!isPronic(2))
+    assert(isPronic(2))
   }
 
   test("isPronic- 15") {
@@ -173,6 +173,10 @@ class NumberPersonalitiesShould extends org.scalatest.FunSuite {
 
   test("isPronic- 6") {
     assert(isHonest(6))
+  }
+
+  test("isPronic- 18") {
+    assert(!isPronic(18))
   }
 
 
