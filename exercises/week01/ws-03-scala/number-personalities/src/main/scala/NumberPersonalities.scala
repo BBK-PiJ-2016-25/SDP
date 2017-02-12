@@ -74,10 +74,19 @@ object  NumberPersonalities {
 
   def isAbundant(n: Int): Boolean = sumOfDivisors(n) > n
 
-  /*
   def main(args: Array[String]): Unit = {
     for(a<-1 until limit) {
+      println(
+        a + "\t" +
+        if (isPrime(a)) "p, " else "c, ",
+        if (isHappy(a)) "h, " else "u, ",
+        if (isTriangular(a)) "t, " else "not t, ",
+        if (isSquare(a)) "s, " else "not s, ",
+        if (isSmug(a)) "sm, " else "not smug, ",
+        if (isHonest(a)) "ht, " else "dis, ",
+        if (isPronic(a)) "pr, " else "not pr, ",
+        if (isDeficient(a)) "d" else if (isAbundant(a)) "ab" else "per"
+      )
     }
   }
-  */
 }
