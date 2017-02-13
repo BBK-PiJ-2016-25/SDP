@@ -7,8 +7,8 @@ class SmokeSensor extends Sensor {
   var batteryPercentage: Double = 100.00
 
   override def isTriggered: Boolean = {
-    if (Random.nextInt(100) < 10) true else false
     batteryPercentage *= 0.8
+    if (Random.nextInt(100) < 10) true else false
   }
 
   override def getLocation: String = location
