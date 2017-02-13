@@ -21,7 +21,7 @@ object HelloWorldSpring extends App {
     val factory = new DefaultListableBeanFactory
     val rdr = new PropertiesBeanDefinitionReader(factory)
     val props = new Properties
-    props.load(new FileInputStream("/Users/keith/Courses/sdp/SDP-2017/exercises/week02/springdi-scala/src/helloworld/beans.properties"))
+    props.load(new FileInputStream("exercises/week02/dependency-injection/spring-hello-world-scala/src/helloworld/beans.properties"))
     rdr.registerBeanDefinitions(props)
     factory
   }
