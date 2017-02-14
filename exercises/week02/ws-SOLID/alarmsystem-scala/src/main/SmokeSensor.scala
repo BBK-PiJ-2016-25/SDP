@@ -5,7 +5,7 @@ import scala.util.Random
 class SmokeSensor extends Sensor {
 
   var location: String = "Kitchen"
-  var sensorType: String = "Smoke main.Sensor"
+  var sensorType: String = "Smoke Sensor"
   var batteryPercentage: Double = 100.00
 
   override def isTriggered: Boolean = {

@@ -8,23 +8,26 @@ import static org.junit.Assert.assertEquals;
 public class FireSensorTest {
 
   @Test
-  public void testThatGetLocationReturnsNull() {
+  public void testThatGetLocationReturnsBedroom() {
     FireSensor sensor = new FireSensor();
     String location = sensor.getLocation();
-    assertEquals(null, location);
+    assertEquals("Bedroom", location);
   }
 
   @Test
-  public void testThatGetSensorTypeReturnsNull() {
+  public void testThatGetSensorTypeReturnsFireSensor() {
     FireSensor sensor = new FireSensor();
     String sensorType = sensor.getSensorType();
-    assertEquals(null, sensorType);
+    assertEquals("Fire Sensor", sensorType);
   }
 
   @Test
-  public void testThatGetBatteryPercentageReturnsNegativeOne() {
+  public void testThatGetBatteryPercentageDepreciatesByTenPercent() {
     FireSensor sensor = new FireSensor();
     double batteryPercentage = sensor.getBatteryPercentage();
-    assertEquals(-1.0, batteryPercentage, 0.01);
+    sensor.isTriggered();
+    double batteryPercentageAfterPolling = sensor.getBatteryPercentage();
+    assertEquals(100.0, batteryPercentage, 0.01);
+    assertEquals(90.0, batteryPercentageAfterPolling, 0.01);
   }
 }

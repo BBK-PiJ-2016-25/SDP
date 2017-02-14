@@ -8,31 +8,27 @@ import static org.junit.Assert.assertEquals;
 public class SmokeSensorTest {
 
   @Test
-  public void testThatIsTriggeredReturnsFalse() {
-    SmokeSensor sensor = new SmokeSensor();
-    boolean isTriggered = sensor.isTriggered();
-    assertEquals(false, isTriggered);
-  }
-
-  @Test
-  public void testThatGetLocationReturnsNull() {
+  public void testThatGetLocationReturnsKitchen() {
     SmokeSensor sensor = new SmokeSensor();
     String location = sensor.getLocation();
-    assertEquals(null, location);
+    assertEquals("Kitchen", location);
   }
 
   @Test
-  public void testThatGetSensorTypeReturnsNull() {
+  public void testThatGetSensorTypeReturnsSmokeSensor() {
     SmokeSensor sensor = new SmokeSensor();
     String sensorType = sensor.getSensorType();
-    assertEquals(null, sensorType);
+    assertEquals("Smoke Sensor", sensorType);
   }
 
   @Test
-  public void testThatGetBatteryPercentageReturnsNegativeOne() {
+  public void testThatGetBatteryPercentageDepreciatesByTwentyPercent() {
     SmokeSensor sensor = new SmokeSensor();
     double batteryPercentage = sensor.getBatteryPercentage();
-    assertEquals(-1.0, batteryPercentage, 0.01);
+    sensor.isTriggered();
+    double batteryPercentageAfterPolling = sensor.getBatteryPercentage();
+    assertEquals(100.0, batteryPercentage, 0.01);
+    assertEquals(80.0, batteryPercentageAfterPolling, 0.01);
   }
 
 }
