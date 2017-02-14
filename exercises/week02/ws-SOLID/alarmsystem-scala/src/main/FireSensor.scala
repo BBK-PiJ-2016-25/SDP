@@ -1,3 +1,5 @@
+package main
+
 import scala.util.Random
 
 class FireSensor extends Sensor {

@@ -1,6 +1,11 @@
+package main
+
 import java.io.IOException
 import java.util.Scanner
 
+/**
+  * Created by anniehawes on 13/02/2017.
+  */
 object App {
   private val EXIT: String = "exit"
   private val POLL: String = "poll"

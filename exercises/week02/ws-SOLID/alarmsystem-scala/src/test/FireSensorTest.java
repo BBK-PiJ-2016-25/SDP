@@ -1,15 +1,11 @@
+package test;
+
+import main.FireSensor;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
 
 public class FireSensorTest {
-
-  @Test
-  public void testThatIsTriggeredReturnsFalse() {
-    FireSensor sensor = new FireSensor();
-    boolean isTriggered = sensor.isTriggered();
-    assertEquals(false, isTriggered);
-  }
 
   @Test
   public void testThatGetLocationReturnsNull() {
