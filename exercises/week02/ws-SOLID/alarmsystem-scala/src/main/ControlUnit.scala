@@ -1,11 +1,17 @@
 package main
 
+// import org.springframework.context.support.ClassPathXmlApplicationContext
+
 import scala.collection.mutable.ListBuffer
 
 class ControlUnit {
   def pollSensors() {
-    val sensors = new ListBuffer[Sensor]()
+    //val factory = new ClassPathXmlApplicationContext("dixmlcons.xml")
+
+    // val sensors = new ListBuffer[Sensor]()
+    val sensors = new ListBuffer[Sensor]
     sensors += new FireSensor()
+    // sensors += factory.getBean("firstSensor").asInstanceOf[Sensor]
     sensors += new SmokeSensor()
     for (sensor <- sensors) {
       if (sensor.isTriggered) {
