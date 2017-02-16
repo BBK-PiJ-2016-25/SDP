@@ -5,7 +5,7 @@ import scala.util.Random
 /**
   * Created by anniehawes on 16/02/2017.
   */
-class MotionSensor extends Sensor {
+class MotionSensor extends SecuritySensor {
 
   var location: String = "Hallway"
   var sensorType: String = "Motion Sensor"

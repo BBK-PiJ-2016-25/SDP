@@ -10,5 +10,5 @@ trait Sensor {
 
   def getSensorType: String
 
-  def isBatteryPowered: Boolean = false
+  def isBatteryPowered: Boolean
 }

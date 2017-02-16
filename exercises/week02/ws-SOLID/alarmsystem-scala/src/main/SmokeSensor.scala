@@ -2,7 +2,7 @@ package main
 
 import scala.util.Random
 
-class SmokeSensor extends BatteryPoweredSensor {
+class SmokeSensor extends HazardSensor {
 
   var location: String = "Kitchen"
   var sensorType: String = "Smoke Sensor"
