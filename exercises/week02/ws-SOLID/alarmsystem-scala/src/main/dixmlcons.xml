@@ -7,9 +7,14 @@
 		http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
 
     <bean id="firstSensor" class="main.FireSensor">
+        <constructor-arg ref = "triggerContacts"/>
     </bean>
     <bean id="secondSensor" class="main.SmokeSensor">
+        <constructor-arg ref = "triggerAlarm"/>
     </bean>
     <bean id="thirdSensor" class="main.MotionSensor">
+        <constructor-arg ref = "triggerContacts"/>
     </bean>
+    <bean id="triggerContacts" class="main.TriggerContacts"/>
+    <bean id="triggerAlarm" class="main.TriggerAlarm"/>
 </beans>

@@ -17,12 +17,16 @@ class SecurityControlUnit extends ControlUnit {
   def populateVariables: Unit = {
     val factory = new ClassPathXmlApplicationContext("dixmlcons.xml")
     for (bean<- factory.getBeanDefinitionNames()) {
-      allSensorsToBePolled += factory.getBean(bean).asInstanceOf[Sensor]
+      if(bean contains("Sensor")) {
+        allSensorsToBePolled += factory.getBean(bean).asInstanceOf[Sensor]
+      }
     }
 
     for (bean<- factory.getBeanDefinitionNames()) {
-      if (!factory.getBean(bean).isInstanceOf[SecuritySensor]) {
-        nonSecuritySensorsToBePolled += factory.getBean(bean).asInstanceOf[Sensor]
+      if(bean contains("Sensor")) {
+        if (!factory.getBean(bean).isInstanceOf[SecuritySensor]) {
+          nonSecuritySensorsToBePolled += factory.getBean(bean).asInstanceOf[Sensor]
+        }
       }
     }
   }
@@ -36,6 +40,8 @@ class SecurityControlUnit extends ControlUnit {
       println("Security Sensors not triggered")
       super.pollSensors(nonSecuritySensorsToBePolled)
     }
+    allSensorsToBePolled.clear()
+    nonSecuritySensorsToBePolled.clear()
   }
 
 }

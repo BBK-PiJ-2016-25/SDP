@@ -11,4 +11,6 @@ trait Sensor {
   def getSensorType: String
 
   def category: String
+
+  def notification: INotification
 }

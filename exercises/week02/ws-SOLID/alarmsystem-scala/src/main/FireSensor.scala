@@ -2,7 +2,7 @@ package main
 
 import scala.util.Random
 
-class FireSensor extends HazardSensor {
+class FireSensor(notificationMethod: INotification) extends HazardSensor {
 
   var location: String = "Bedroom"
   var sensorType: String = "Fire Sensor"
@@ -18,4 +18,6 @@ class FireSensor extends HazardSensor {
   override def getSensorType: String = sensorType
 
   override def getBatteryPercentage: Double = batteryPercentage
+
+  override def notification = notificationMethod
 }

@@ -5,7 +5,7 @@ import scala.util.Random
 /**
   * Created by anniehawes on 16/02/2017.
   */
-class MotionSensor extends SecuritySensor {
+class MotionSensor(notificationMethod: INotification) extends SecuritySensor {
 
   var location: String = "Hallway"
   var sensorType: String = "Motion Sensor"
@@ -18,4 +18,5 @@ class MotionSensor extends SecuritySensor {
 
   override def getSensorType: String = sensorType
 
+  override def notification = notificationMethod
 }
