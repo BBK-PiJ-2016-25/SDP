@@ -12,7 +12,7 @@ object App {
 
   @throws[IOException]
   def main(args: Array[String]) {
-    val controlUnit: ControlUnit = new ControlUnit
+    val controlUnit: SecurityControlUnit = new SecurityControlUnit()
     val scanner: Scanner = new Scanner(System.in)
     var input: String = ""
     while (input != EXIT) {

@@ -10,4 +10,6 @@
     </bean>
     <bean id="secondSensor" class="main.SmokeSensor">
     </bean>
+    <bean id="thirdSensor" class="main.MotionSensor">
+    </bean>
 </beans>
