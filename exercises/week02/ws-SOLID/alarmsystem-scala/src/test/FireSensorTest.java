@@ -1,5 +1,7 @@
 package test;
 
+import main.Sensor;
+import main.TriggerAlarm;
 import main.FireSensor;
 import org.junit.Test;
 
@@ -9,21 +11,21 @@ public class FireSensorTest {
 
   @Test
   public void testThatGetLocationReturnsBedroom() {
-    FireSensor sensor = new FireSensor();
+    Sensor sensor = new FireSensor(new TriggerAlarm());
     String location = sensor.getLocation();
     assertEquals("Bedroom", location);
   }
 
   @Test
   public void testThatGetSensorTypeReturnsFireSensor() {
-    FireSensor sensor = new FireSensor();
+    FireSensor sensor = new FireSensor(new TriggerAlarm());
     String sensorType = sensor.getSensorType();
     assertEquals("Fire Sensor", sensorType);
   }
 
   @Test
   public void testThatGetBatteryPercentageDepreciatesByTenPercent() {
-    FireSensor sensor = new FireSensor();
+    FireSensor sensor = new FireSensor(new TriggerAlarm());
     double batteryPercentage = sensor.getBatteryPercentage();
     sensor.isTriggered();
     double batteryPercentageAfterPolling = sensor.getBatteryPercentage();
