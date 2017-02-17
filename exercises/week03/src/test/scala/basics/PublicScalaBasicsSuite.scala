@@ -11,7 +11,7 @@ class PublicScalaBasicsSuite extends FunSuite {
       val a = scala.util.Random.nextInt(1000)
       val b = scala.util.Random.nextInt(1000)
       val r = add(a, b)
-      assert(a + b == r, s"Your addd function produced the result $r from adding $a to $b")
+      assert(a + b == r, s"Your add function produced the result $r from adding $a to $b")
     }
   }
 
