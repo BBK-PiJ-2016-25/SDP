@@ -89,12 +89,18 @@ object ScalaBasics {
    * - You may not use any mutable (var) or immutable (val) variables.
    *
    * HINT: You might want to look at the Scaladoc for Array to see some
-   * useful methods you can use to solve this.
+   * useful methods you can useto solve this.
    *
    * @param r the array of integers
    * @return the minimum integer in the array
    */
-  def minRecursive(r: Array[Int]): Int = ???
+  def minRecursive(r: Array[Int]): Int = {
+      if (r.isEmpty) 0
+      else {
+        if (r.tail.isEmpty || r.head <= minRecursive(r.tail)) r.head
+        else minRecursive(r.tail)
+      }
+  }
 
   /**
    * Return the base 36 equivalent of the BitInt b.
