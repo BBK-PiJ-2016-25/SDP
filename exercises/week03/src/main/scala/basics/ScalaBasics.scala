@@ -50,7 +50,15 @@ object ScalaBasics {
    * @param r the array of integers
    * @return the minimum integer in the array
    */
-  def minWhile(r: Array[Int]): Int = ???
+  def minWhile(r: Array[Int]): Int = {
+    var minimum: Int = Int.MaxValue
+    var counter: Int = 0
+    while (counter < r.length) {
+      if (r(counter) < minimum) minimum = r(counter)
+      counter += 1
+    }
+    minimum
+  }
 
   /**
    * Write a function that returns the minimum integer in the Array r.
@@ -64,7 +72,13 @@ object ScalaBasics {
    * @param r the array of integers
    * @return the minimum integer in the array
    */
-  def minFor(r: Array[Int]): Int = ???
+  def minFor(r: Array[Int]): Int = {
+    var minimum: Int = Int.MaxValue
+    for (number <- r) {
+      if (number < minimum) minimum = number
+    }
+    minimum
+  }
 
   /**
    * Write a function called minRecursive that returns the minimum integer in the Array r.
