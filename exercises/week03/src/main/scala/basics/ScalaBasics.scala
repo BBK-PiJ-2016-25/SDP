@@ -74,8 +74,8 @@ object ScalaBasics {
    */
   def minFor(r: Array[Int]): Int = {
     var minimum: Int = Int.MaxValue
-    for (number <- r) {
-      if (number < minimum) minimum = number
+    for (number <- r if minimum > number) {
+      minimum = number
     }
     minimum
   }
@@ -104,7 +104,7 @@ object ScalaBasics {
    * @param b a big integer
    * @return the base 36 equivalent
    */
-  def base36(b: BigInt): String = ???
+  def base36(b: BigInt): String = b.toString(36)
 
   /**
    * Splits the String s in half.
