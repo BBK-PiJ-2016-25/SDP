@@ -156,7 +156,12 @@ object ScalaBasics {
    * @param s the potential palindrome
    * @return true if s is a palindrome; false otherwise
    */
-  def isPalindrome(s: String): Boolean = ???
+  def isPalindrome(s: String): Boolean = {
+    val sanitisedString = s.replaceAll("\\W", "").toUpperCase()
+    val reversedSanitisedString = sanitisedString.reverse
+    for (a <- sanitisedString; b <- reversedSanitisedString if a != b) yield false
+    true
+  }
 
   /**
    * You don't have to complete this one as we've removed it from the list
