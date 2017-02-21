@@ -1,4 +1,4 @@
-package basics
+package basic
 
 import basics.ScalaBasics._
 import org.scalatest.FunSuite
@@ -112,6 +112,27 @@ class PublicScalaBasicsSuite extends FunSuite {
     for (p <- pp) {
       assert(isPalindrome(p), s"$p is a palindrome")
     }
+  }
+
+  test("[7] wordCounter should return a map with each featured word and its corresponding count") {
+    val given = Array(
+      "this is a sentence.",
+      "this is a sentence too!"
+    )
+
+    val givenString = given.toString
+
+    val expected = Map(
+      "this" -> 2,
+      "is" -> 2,
+      "a" -> 2,
+      "sentence." -> 1,
+      "sentence" -> 1,
+      "too!" -> 1)
+
+    val expectedString = expected.toString
+
+    assert(wordCounter(given) == expected, s"Array $givenString returned word count $expectedString")
   }
 
   // test("[3] sumChars should sum up the characters as integers from its parameters") {

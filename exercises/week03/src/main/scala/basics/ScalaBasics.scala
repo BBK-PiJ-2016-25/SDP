@@ -1,5 +1,7 @@
 package basics
 
+import scala.collection.immutable.TreeMap
+
 /**
  * This is a singleton object containing the functions you need
  * to implement. Please make sure to read the documentation associated
@@ -133,7 +135,7 @@ object ScalaBasics {
    * @param s the string to split
    * @return the split string as a tuple
    */
-  def splitInHalf(s: String): (String, String) = s.splitAt(s.length()/2)
+  def splitInHalf(s: String): (String, String) = s.splitAt(s.length/2)
 
   /**
    * Determines if the given string s is a palindrome.
@@ -157,7 +159,7 @@ object ScalaBasics {
    * @return true if s is a palindrome; false otherwise
    */
   def isPalindrome(s: String): Boolean = {
-    val sanitisedString = s.replaceAll("\\W", "").toUpperCase()
+    val sanitisedString = s.replaceAll("\\W", "").toUpperCase
     val reversedSanitisedString = sanitisedString.reverse
     for (a <- sanitisedString; b <- reversedSanitisedString if a != b) yield false
     true
@@ -204,6 +206,17 @@ object ScalaBasics {
    * @param lines the lines of a text file
    * @return a map from words to the number of times that word was seen
    */
-  def wordCounter(lines: Array[String]): Map[String, Int] = ???
-
+  def wordCounter(lines: Array[String]): Map[String, Int] = {
+    var map = new TreeMap[String, Int]()
+    for (line <- lines) {
+      for (word <- line.split(" ")) {
+        if (!map.keys.exists(_ == word)) {
+          map = map.insert(word, 1)
+        } else {
+          map = map.insert(word, map.getOrElse(word, 0) +  1)
+        }
+      }
+    }
+    map
+  }
 }
