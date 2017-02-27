@@ -108,7 +108,12 @@ object Funcs {
     }
   }
 
-  def flatten[A](ls: List[List[A]]): List[A] = ???
+  def flatten[A](ls: List[List[A]]): List[A] = {
+    ls match {
+      case Nil => Nil
+      case head :: tail => (head ++ flatten(tail))
+    }
+  }
 
   // MAP AND FILTER
 
