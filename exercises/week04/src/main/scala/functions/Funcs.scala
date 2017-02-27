@@ -97,7 +97,8 @@ object Funcs {
     */
   def sum(ls: List[Double]): Double = {foldLeft(ls, 0.0)((x, y) => x + y)}
 
-  def product(ls: List[Double]): Double = ???
+  def product(ls: List[Double]): Double =  {foldLeft(ls, 1.0)((x, y) => x * y)}
+
   def length[A](ls: List[A]): Int = ???
   def reverse[A](ls: List[A]): List[A] = ???
   def flatten[A](ls: List[List[A]]): List[A] = ???
