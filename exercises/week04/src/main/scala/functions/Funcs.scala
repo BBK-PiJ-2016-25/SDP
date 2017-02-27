@@ -101,7 +101,13 @@ object Funcs {
 
   def length[A](ls: List[A]): Int = {foldLeft(ls, 0)((x, y) => x + 1)}
 
-  def reverse[A](ls: List[A]): List[A] = ???
+  def reverse[A](ls: List[A]): List[A] = {
+    ls match {
+      case Nil => Nil
+      case head :: tail => reverse(tail) :+ head
+    }
+  }
+
   def flatten[A](ls: List[List[A]]): List[A] = ???
 
   // MAP AND FILTER
