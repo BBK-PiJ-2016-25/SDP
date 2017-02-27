@@ -13,7 +13,7 @@ object Funcs {
     */
   def tail[A](ls: List[A]): List[A] = {
     ls match {
-      case Nil => Nil
+      case Nil => throw new IllegalArgumentException("empty list provided")
       case _ :: tail => tail
     }
   }
@@ -55,7 +55,13 @@ object Funcs {
     * @param ls: List[A] the list to be changed.
     * @return a list with the last element of ls removed.
     */
-  def init[A](ls: List[A]):List[A] = ???
+  def init[A](ls: List[A]):List[A] = {
+    ls match {
+      case Nil => throw new IllegalArgumentException("empty list provided")
+      case _ :: Nil => Nil
+      case h :: t => h :: init(t)
+    }
+  }
 
   // LIST FOLDING
 
