@@ -170,7 +170,10 @@ object Funcs {
     * length is greater than 0.
     * @return the average value of the largest values in the pairs.
     */
-  def maxAverage(ls: List[(Double,Double)]): Double = ???
+  def maxAverage(ls: List[(Double,Double)]): Double = {
+    val maxes = map(ls)(a => if (a._1 > a._2) a._1 else a._2)
+    sum(maxes)/maxes.length
+  }
 
   /**
     * variance takes a List[Double] and calculates the squared distance
