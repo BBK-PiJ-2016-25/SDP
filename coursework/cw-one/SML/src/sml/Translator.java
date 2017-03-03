@@ -2,7 +2,9 @@ package sml;
 
 import java.io.File;
 import java.io.IOException;
+import java.lang.reflect.Constructor;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.NoSuchElementException;
 import java.util.Scanner;
 
@@ -73,55 +75,42 @@ public class Translator {
     // removed. Translate line into an instruction with label label
     // and return the instruction
     public Instruction getInstruction(String label) {
-        int s1; // Possible operands of the instruction
-        int s2;
-        int r;
-        int x;
-        String nextLabel;
 
         if (line.equals(""))
             return null;
 
         String ins = scan();
-        switch (ins) {
-            case "add":
-                r = scanInt();
-                s1 = scanInt();
-                s2 = scanInt();
-                return new AddInstruction(label, r, s1, s2);
-            case "lin":
-                r = scanInt();
-                s1 = scanInt();
-                return new LinInstruction(label, r, s1);
-            case "sub":
-                r = scanInt();
-                s1 = scanInt();
-                s2 = scanInt();
-                return new SubInstruction(label, r, s1, s2);
-            case "mul":
-                r = scanInt();
-                s1 = scanInt();
-                s2 = scanInt();
-                return new MulInstruction(label, r, s1, s2);
-            case "div":
-                r = scanInt();
-                s1 = scanInt();
-                s2 = scanInt();
-                return new DivInstruction(label, r, s1, s2);
-            case "out":
-                s1 = scanInt();
-                return new OutInstruction(label, s1);
-            case "bnz":
-                s1 = scanInt();
-                nextLabel = scan();
-                return new BnzInstruction(label, s1, nextLabel);
+
+        String className = ins.substring(0, 1).toUpperCase() + ins.substring(1) + "Instruction";
+            try {
+                System.out.println("sml." + className);
+                Class actualClass = Class.forName("sml." + className);
+                Constructor[] cons = actualClass.getConstructors();
+                Constructor con = cons[1];
+                Class[] fullParams = con.getParameterTypes();
+                Class[] params = Arrays.copyOfRange(fullParams, 1, fullParams.length);
+                ArrayList<Object> arguments = new ArrayList<>();
+                arguments.add(label);
+                for (Class param : params) {
+                    System.out.println(param.toString());
+                    if (param.toString().equals("int")) {
+                        arguments.add(scanInt());
+                    } else {
+                        arguments.add(scan());
+                    }
+                }
+                System.out.println(arguments.toString());
+                try {
+                    return (Instruction) con.newInstance(arguments.toArray());
+                } catch (Exception ex) {
+                    ex.printStackTrace();
+                }
+            }
+            catch (ClassNotFoundException ex){
+                System.out.println("No implementation for " + ins + " found");
+            }
+            return null;
         }
-
-        // You will have to write code here for the other instructions.
-
-        return null;
-    }
-
     /*
      * Return the first word of line and remove it from line. If there is no
      * word, return ""
