@@ -83,7 +83,6 @@ public class Translator {
 
         String className = ins.substring(0, 1).toUpperCase() + ins.substring(1) + "Instruction";
             try {
-                System.out.println("sml." + className);
                 Class actualClass = Class.forName("sml." + className);
                 Constructor[] cons = actualClass.getConstructors();
                 Constructor con = cons[1];
@@ -92,14 +91,12 @@ public class Translator {
                 ArrayList<Object> arguments = new ArrayList<>();
                 arguments.add(label);
                 for (Class param : params) {
-                    System.out.println(param.toString());
                     if (param.toString().equals("int")) {
                         arguments.add(scanInt());
                     } else {
                         arguments.add(scan());
                     }
                 }
-                System.out.println(arguments.toString());
                 try {
                     return (Instruction) con.newInstance(arguments.toArray());
                 } catch (Exception ex) {
