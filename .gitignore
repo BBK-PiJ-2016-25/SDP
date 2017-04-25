@@ -94,3 +94,6 @@ project/plugins/project/
 # End of https://www.gitignore.io/api/java,scala,intellij
 /coursework/cw-one/cw-one.iml
 /coursework/cw-one/test1.sml
+/coursework/cw-one/test2.sml
+*.iml
+/exercises/week05/scalastyle-config.xml
