@@ -1,6 +1,6 @@
 package classes
 
-import org.scalatest.{BeforeAndAfter, FunSpec, FunSuite, GivenWhenThen}
+import org.scalatest.{BeforeAndAfter, FunSuite}
 
 /**
   * Created by anniehawes on 25/04/2017.
