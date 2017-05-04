@@ -5,7 +5,7 @@ import org.scalatest.{BeforeAndAfter, FunSuite}
 /**
   * Created by anniehawes on 25/04/2017.
   */
-class CounterTests  extends FunSuite with BeforeAndAfter {
+class CounterTests extends FunSuite with BeforeAndAfter {
 
   var counter: Counter = _
   var counterFromTen: Counter = _
